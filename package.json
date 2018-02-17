@@ -1,0 +1,32 @@
+{
+  "name": "lasagne",
+  "version": "1.0.0",
+  "main": "/app/index.html",
+  "repository": "git@github.com:wanbinkimoon/lasagne.git",
+  "author": "Nicola Bertelloni <nicola.bertelloni@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server --hot --inline --progress",
+    "start:dash": "webpack-dashboard ./node_modules/.bin/webpack-dev-server --hot --inline --progress",
+    "build": "webpack -p --config webpack.config.js --hide-modules"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
+  },
+  "dependencies": {
+    "p5": "^0.6.0",
+    "webmidi": "^2.0.0",
+    "webpack-dashboard": "^1.1.1"
+  }
+}
