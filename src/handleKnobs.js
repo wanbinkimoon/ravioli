@@ -44,7 +44,5 @@ export default function(numb, val, store) {
     }
   };
 
-  console.table(store)
-
   return params(numb);
 }
