@@ -1,11 +1,10 @@
 import p5 from 'p5';
-// import WebMidi from 'webmidi';
-// import initialState from './store';
-// import handlePads from './pad/index';
-// import handleKnobs from './knob/index';
-// // import dimesions from './setup'
-// const store = {...initialState};
+import WebMidi from 'webmidi';
+import initialState from './store';
+import handlePads from './handlePads';
+import handleKnobs from './handleKnobs';
 
+const store = {...initialState};
 
 const sketch = p => {
   let canvas;
@@ -34,24 +33,23 @@ new p5(sketch);
 
 
 
-// const pad = e => {
-//   const numb = e.data[1];
-//   return (store.state = {...handlePads(numb, store),});
-// };
+const pad = e => {
+  const numb = e.data[1];
+  return (store.state = {...handlePads(numb, store),});
+};
 
-// const knob = e => {
-//   const numb = e.data[1];
-//   const val = e.data[2] / 127 * 100;
-//   const {set} = store.state;
-//   return handleKnobs(numb, val, set);
-// };
+const knob = e => {
+  const numb = e.data[1];
+  const val = e.data[2] / 127 * 100;
+  return (store.vals = {...handleKnobs(numb, val, store),});
+};
 
-// WebMidi.enable(err => {
-//   try {
-//     var input = WebMidi.getInputByName('LPD8');
-//     input.addListener('noteon', 'all', pad);
-//     input.addListener('controlchange', 'all', knob);
-//   } catch (err) {
-//     console.log('WebMidi could not be enabled.', err);
-//   }
-// });
+WebMidi.enable(err => {
+  try {
+    var input = WebMidi.getInputByName('LPD8');
+    input.addListener('noteon', 'all', pad);
+    input.addListener('controlchange', 'all', knob);
+  } catch (err) {
+    console.log('WebMidi could not be enabled.', err);
+  }
+});
