@@ -4,6 +4,8 @@ import initialState from './store';
 import handlePads from './handlePads';
 import handleKnobs from './handleKnobs';
 
+import rectOne from './sets/rectOne'
+
 const store = {...initialState};
 
 const sketch = p => {
@@ -15,14 +17,16 @@ const sketch = p => {
   };
   
   p.draw = () => {
-    switch(store.set) {
-      case 1: 
-        return 
+    const sets = () => {
+      switch(store.state.set) {
+        case 1: 
+          return rectOne(p, store.vals)
+        
+        default: 
+          return console.log('default')
+      }
     }
-    const { one, two, three, four, five, six, seven, eight} = store.vals
-    p.background(220)
-    p.rect( one * 3, two * 3, three * 3, four * 3);
-    p.fill(five * 3, six * 3, seven * 3)
+    sets()
   };
 
   p.windowResized = () => {
