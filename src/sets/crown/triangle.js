@@ -24,6 +24,7 @@ export default class Triangle {
     p.push()
     p.translate(origin.x, origin.y)
     p.rotate(revolution)
+    console.log(revolution)
     p.triangle(point.x1, point.y1, point.x2, point.y2, point.x3, point.y3);
     p.pop()
   }
