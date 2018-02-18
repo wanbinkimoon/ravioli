@@ -1,10 +1,11 @@
 import Triangle from './triangle';
 
 export default class Composition {
-  constructor(p, side, radius, innerAngle) {
+  constructor(p, side, radius, innerAngle, revolution) {
     this.state = {
       p: p, 
       side: side,
+      revolution: revolution,
       origin: {
         x: radius * 10 * Math.cos(innerAngle),
         y: radius * 10 * Math.sin(innerAngle),
@@ -17,8 +18,8 @@ export default class Composition {
   }
 
   multTriangle() {
-    const { p, origin, side } = this.state
-    const shape = new Triangle(p, side, origin);
+    const { p, origin, side, revolution } = this.state
+    const shape = new Triangle(p, side, origin, revolution);
     shape.draw
   }
 }

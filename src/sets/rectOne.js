@@ -1,8 +1,8 @@
 export default function(p, vals) {
-  const { one, two, three, four, five, six, seven, eight } = vals
+  const { ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT } = vals
   p.background('rgba(0,0,0, 0.25)')
   p.translate(p.width / 2, p.height / 2);
-  p.rotate(eight)
+  p.rotate(EIGHT)
   p.noStroke(255)
-  p.rect( one * 3, two * 3, three * 3, four * 3);
+  p.rect( ONE * 3, TWO * 3, THREE * 3, FOUR * 3);
 }

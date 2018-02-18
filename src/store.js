@@ -3,13 +3,13 @@ export default {
     set: 1,
   },
   vals: {
-    one: 0, 
-    two: 0, 
-    three: 0, 
-    four: 0, 
-    five: 0, 
-    six: 0, 
-    seven: 0, 
-    eight: 0, 
+    ONE: 0, 
+    TWO: 0, 
+    THREE: 0, 
+    FOUR: 0, 
+    FIVE: 0, 
+    SIX: 0, 
+    SEVEN: 0, 
+    EIGHT: 0, 
   }
 }

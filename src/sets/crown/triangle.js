@@ -1,14 +1,16 @@
 export default class Triangle {
-  constructor(p, side, origin) {
+  constructor(p, side, origin, revolution) {
     this.state = {
       p: p, 
+      revolution: revolution,
+      origin: {...origin},
       point: {
-        x1: origin.x, 
-        y1: (Math.sqrt(3) / 3 * side * - 1) + origin.y, 
-        x2: (side / 2  * -1) + origin.x, 
-        y2: (Math.sqrt(3) / 6 * side) + origin.y, 
-        x3: (side / 2)  + origin.x, 
-        y3: (Math.sqrt(3) / 6 * side) + origin.y, 
+        x1: 0, 
+        y1: Math.sqrt(3) / 3 * side * - 1, 
+        x2: side / 2  * -1, 
+        y2: Math.sqrt(3) / 6 * side, 
+        x3: side / 2, 
+        y3: Math.sqrt(3) / 6 * side, 
       } 
     }
   }
@@ -18,7 +20,11 @@ export default class Triangle {
   }
   // Method
   shape() {
-    const { p, point } = this.state
+    const { p, point, origin, revolution } = this.state
+    p.push()
+    p.translate(origin.x, origin.y)
+    p.rotate(revolution)
     p.triangle(point.x1, point.y1, point.x2, point.y2, point.x3, point.y3);
+    p.pop()
   }
 }

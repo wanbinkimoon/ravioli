@@ -4,7 +4,7 @@ import initialState from './store';
 import handlePads from './handlePads';
 import handleKnobs from './handleKnobs';
 
-import rectOne from './sets/rectOne';
+import rectONE from './sets/rectONE';
 import triangle from './sets/triangle';
 import crown from './sets/crown/index';
 
@@ -22,7 +22,7 @@ const sketch = p => {
     const sets = () => {
       switch (store.state.set) {
         case 1:
-          return rectOne(p, store.vals);
+          return rectONE(p, store.vals);
         case 2:
           return triangle(p, store.vals);
         case 3:

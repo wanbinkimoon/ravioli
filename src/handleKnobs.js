@@ -4,42 +4,42 @@ export default function(numb, val, store) {
       case 1:
         return (store.vals = {
             ...store.vals,
-          one: val,
+          ONE: val,
         });
       case 2:
         return (store.vals = {
           ...store.vals,
-          two: val,
+          TWO: val,
         });
       case 3:
         return (store.vals = {
           ...store.vals,
-          three: val,
+          THREE: val,
         });
       case 4:
         return (store.vals = {
           ...store.vals,
-          four: val,
+          FOUR: val,
         });
       case 5:
         return (store.vals = {
           ...store.vals,
-          five: val,
+          FIVE: val,
         });
       case 6:
         return (store.vals = {
           ...store.vals,
-          six: val,
+          SIX: val,
         });
       case 7:
         return (store.vals = {
           ...store.vals,
-          seven: val,
+          SEVEN: val,
         });
       case 8:
         return (store.vals = {
           ...store.vals,
-          eight: val,
+          EIGHT: val,
         });
     }
   };
