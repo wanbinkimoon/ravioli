@@ -11,7 +11,7 @@ export default function(p, vals, mic) {
   const color = {
     red: soundVal,
     green: soundVal * 2,
-    blue: 40,
+    blue: soundVal * 3,
     alphaBg: FIVE / 200,
     alphaFg: SIX / 200,
   };
@@ -31,8 +31,6 @@ export default function(p, vals, mic) {
   p.translate(p.width / 2, p.height / 2);
   p.background(bgColor);
   p.angleMode(p.DEGREES);
-
-  console.log(bgColor);
 
   p.rotate(orbit);
   orbit += EIGHT / 100;
