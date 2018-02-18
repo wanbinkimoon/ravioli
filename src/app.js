@@ -1,4 +1,6 @@
 import p5 from 'p5';
+import 'p5/lib/addons/p5.sound';
+
 import WebMidi from 'webmidi';
 import initialState from './store';
 import handlePads from './handlePads';
@@ -7,15 +9,19 @@ import handleKnobs from './handleKnobs';
 import rectONE from './sets/rectONE';
 import triangle from './sets/triangle';
 import crown from './sets/crown/index';
+import crownDance from './sets/crownDance/index';
 
 const store = {...initialState};
 
+
 const sketch = p => {
   let canvas;
+  let mic = new p5.AudioIn();
 
   p.setup = () => {
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.background(0);
+    mic.start();
   };
 
   p.draw = () => {
@@ -27,6 +33,8 @@ const sketch = p => {
           return triangle(p, store.vals);
         case 3:
           return crown(p, store.vals);
+        case 4:
+          return crownDance(p, store.vals, mic);
 
         default:
           return console.log('default');
