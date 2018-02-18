@@ -6,6 +6,7 @@ import handleKnobs from './handleKnobs';
 
 import rectOne from './sets/rectOne';
 import triangle from './sets/triangle';
+import crown from './sets/crown/index';
 
 const store = {...initialState};
 
@@ -14,7 +15,7 @@ const sketch = p => {
 
   p.setup = () => {
     p.createCanvas(p.windowWidth, p.windowHeight);
-    p.background(220);
+    p.background(0);
   };
 
   p.draw = () => {
@@ -24,6 +25,8 @@ const sketch = p => {
           return rectOne(p, store.vals);
         case 2:
           return triangle(p, store.vals);
+        case 3:
+          return crown(p, store.vals);
 
         default:
           return console.log('default');
