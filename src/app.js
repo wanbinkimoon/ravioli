@@ -4,7 +4,8 @@ import initialState from './store';
 import handlePads from './handlePads';
 import handleKnobs from './handleKnobs';
 
-import rectOne from './sets/rectOne'
+import rectOne from './sets/rectOne';
+import triangle from './sets/triangle';
 
 const store = {...initialState};
 
@@ -13,20 +14,22 @@ const sketch = p => {
 
   p.setup = () => {
     p.createCanvas(p.windowWidth, p.windowHeight);
-    p.background(220)
+    p.background(220);
   };
-  
+
   p.draw = () => {
     const sets = () => {
-      switch(store.state.set) {
-        case 1: 
-          return rectOne(p, store.vals)
-        
-        default: 
-          return console.log('default')
+      switch (store.state.set) {
+        case 1:
+          return rectOne(p, store.vals);
+        case 2:
+          return triangle(p, store.vals);
+
+        default:
+          return console.log('default');
       }
-    }
-    sets()
+    };
+    sets();
   };
 
   p.windowResized = () => {
@@ -39,13 +42,13 @@ const sketch = p => {
     const numb = e.data[1];
     return (store.state = {...handlePads(numb, store)});
   };
-  
+
   const knob = e => {
     const numb = e.data[1];
     const val = e.data[2] / 127 * 100;
     return (store.vals = {...handleKnobs(numb, val, store)});
   };
-  
+
   WebMidi.enable(err => {
     try {
       const input = WebMidi.getInputByName('LPD8');
