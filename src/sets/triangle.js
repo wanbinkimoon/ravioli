@@ -2,15 +2,18 @@ let angle = 0;
 
 export default function(p, vals) {
   const { one, two, three, four, five, six, seven, eight } = vals
+  
+  const side = one * 4 
   const point = {
-    x1:0, 
-    y1:0, 
-    x2:0, 
-    y2:0, 
-    x3:0, 
-    y3:0, 
+    x1: 0, 
+    y1: Math.sqrt(3) / 3 * side * - 1, 
+    x2: side / 2  * -1 , 
+    y2: Math.sqrt(3) / 6 * side, 
+    x3: side / 2, 
+    y3: Math.sqrt(3) / 6 * side, 
   }
-  p.background(0)
+  p.background(`rgba(0, 0, 0, ${seven / 200})`)
+
   p.translate(p.width / 2, p.height / 2);
   p.rotate(angle)
   angle += eight / 10000
