@@ -10,7 +10,7 @@ export default function(p, vals, mic) {
 
   const color = {
     red: soundVal,
-    green: soundVal * 2,
+    green: soundVal,
     blue: soundVal * 3,
     alphaBg: FIVE / 200,
     alphaFg: SIX / 200,
@@ -37,7 +37,7 @@ export default function(p, vals, mic) {
   revolution += SEVEN / 100;
   p.stroke(255);
   p.fill(fillColor);
-
+  p.scale((soundVal / 100) / FOUR)
   const els = Math.max(parseInt(THREE / 12.5, 10), 1);
   // const els = 3;
   const innerAngle = 360 / els;
