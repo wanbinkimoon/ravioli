@@ -23,11 +23,12 @@ export default function(p, vals, mic) {
     ${color.alphaBg})`;
 
   const fillColor = `rgba(
-    ${color.red},
+    ${color.green},
     ${color.green}, 
-    ${color.blue}, 
+    ${color.green}, 
     ${color.alphaFg})`;
 
+  const scaleVal = Math.max(soundVal / (FOUR * 2), soundVal / 100)
   p.translate(p.width / 2, p.height / 2);
   p.background(bgColor);
   p.angleMode(p.DEGREES);
@@ -37,7 +38,7 @@ export default function(p, vals, mic) {
   revolution += SEVEN / 100;
   p.stroke(255);
   p.fill(fillColor);
-  p.scale((soundVal / 100) / FOUR)
+  p.scale(scaleVal)
   const els = Math.max(parseInt(THREE / 12.5, 10), 1);
   // const els = 3;
   const innerAngle = 360 / els;
