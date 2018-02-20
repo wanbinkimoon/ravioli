@@ -55,6 +55,7 @@ const sketch = p => {
   };
 
   const knob = e => {
+    console.log(e)
     const numb = e.data[1];
     const val = e.data[2] / 127 * 100;
     return (store.vals = {...handleKnobs(numb, val, store)});

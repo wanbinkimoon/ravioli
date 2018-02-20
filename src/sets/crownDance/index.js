@@ -9,9 +9,9 @@ export default function(p, vals, mic) {
   const soundVal = parseInt((mic.getLevel() * 500), 10);
 
   const color = {
-    red: soundVal,
-    green: soundVal,
-    blue: soundVal * 3,
+    red: soundVal * 10,
+    green: 100,
+    blue: 255,
     alphaBg: FIVE / 200,
     alphaFg: SIX / 200,
   };
@@ -23,20 +23,19 @@ export default function(p, vals, mic) {
     ${color.alphaBg})`;
 
   const fillColor = `rgba(
-    ${color.green},
+    ${color.red},
     ${color.green}, 
-    ${color.green}, 
+    ${color.blue}, 
     ${color.alphaFg})`;
 
   const scaleVal = Math.max(soundVal / (FOUR * 2), soundVal / 100)
   p.translate(p.width / 2, p.height / 2);
   p.background(bgColor);
   p.angleMode(p.DEGREES);
-
   p.rotate(orbit);
   orbit += EIGHT / 100;
   revolution += SEVEN / 100;
-  p.stroke(255);
+  p.stroke('white');
   p.fill(fillColor);
   p.scale(scaleVal)
   const els = Math.max(parseInt(THREE / 12.5, 10), 1);
