@@ -6,12 +6,12 @@ let revolution = 0;
 export default function(p, vals, mic) {
   const {ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT} = vals;
 
-  const soundVal = parseInt((mic.getLevel() * 500), 10);
+  const soundVal = parseInt((mic.getLevel() * 200), 10);
 
   const color = {
-    red: soundVal * 10,
-    green: 100,
-    blue: 255,
+    red: soundVal * 2,
+    green: soundVal * 2,
+    blue: soundVal * 2,
     alphaBg: FIVE / 200,
     alphaFg: SIX / 200,
   };
@@ -37,7 +37,7 @@ export default function(p, vals, mic) {
   revolution += SEVEN / 100;
   p.stroke('white');
   p.fill(fillColor);
-  p.scale(scaleVal)
+  p.scale(scaleVal / 2)
   const els = Math.max(parseInt(THREE / 12.5, 10), 1);
   // const els = 3;
   const innerAngle = 360 / els;

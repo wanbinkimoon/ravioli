@@ -10,6 +10,7 @@ import rectONE from './sets/rectONE';
 import triangle from './sets/triangle';
 import crown from './sets/crown/index';
 import crownDance from './sets/crownDance/index';
+import circles from './sets/circles/index';
 
 const store = {...initialState};
 
@@ -35,6 +36,8 @@ const sketch = p => {
           return crown(p, store.vals);
         case 4:
           return crownDance(p, store.vals, mic);
+        case 5:
+          return circles(p, store.vals, mic);
 
         default:
           return console.log('default');
