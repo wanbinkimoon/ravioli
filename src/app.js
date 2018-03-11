@@ -17,12 +17,13 @@ const store = {...initialState};
 
 const sketch = p => {
   let canvas;
-  let mic = new p5.AudioIn();
+  let micVol = new p5.AudioIn();
+  let micAmp = new p5.Amplitude();
 
   p.setup = () => {
     p.createCanvas(p.windowWidth, p.windowHeight);
     p.background(0);
-    mic.start();
+    micVol.start();
   };
 
   p.draw = () => {
@@ -31,14 +32,13 @@ const sketch = p => {
         case 1:
           return rectONE(p, store.vals);
         case 2:
-          console.log('2')
           return triangle(p, store.vals);
         case 3:
           return crown(p, store.vals);
         case 4:
-          return crownDance(p, store.vals, mic);
+          return crownDance(p, store.vals, micVol);
         case 5:
-          return circles(p, store.vals, mic);
+          return circles(p, store.vals, micVol, micAmp);
 
         default:
           return console.log('default');
@@ -54,13 +54,13 @@ const sketch = p => {
   p.keyPressed = () => {};
 
   const pad = e => {
-    console.log(e)
+    // console.log(e)
     const numb = e.data[1];
     return (store.state = {...handlePads(numb, store)});
   };
 
   const knob = e => {
-    console.log(e)
+    // console.log(e)
     const numb = e.data[1];
     const val = e.data[2] / 127 * 100;
     return (store.vals = {...handleKnobs(numb, val, store)});
