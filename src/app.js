@@ -31,6 +31,7 @@ const sketch = p => {
         case 1:
           return rectONE(p, store.vals);
         case 2:
+          console.log('2')
           return triangle(p, store.vals);
         case 3:
           return crown(p, store.vals);
@@ -53,6 +54,7 @@ const sketch = p => {
   p.keyPressed = () => {};
 
   const pad = e => {
+    console.log(e)
     const numb = e.data[1];
     return (store.state = {...handlePads(numb, store)});
   };

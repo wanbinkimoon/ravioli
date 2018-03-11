@@ -9,9 +9,9 @@ export default function(p, vals, mic) {
   const soundVal = parseInt((mic.getLevel() * 200), 10);
 
   const color = {
-    red: soundVal * 2,
-    green: soundVal * 2,
-    blue: soundVal * 2,
+    red: soundVal / 5,
+    green: 125,
+    blue: 125,
     alphaBg: FIVE / 200,
     alphaFg: SIX / 200,
   };
@@ -28,7 +28,7 @@ export default function(p, vals, mic) {
     ${color.blue}, 
     ${color.alphaFg})`;
 
-  const scaleVal = Math.max(soundVal / (FOUR * 2), soundVal / 100)
+  const scaleVal = Math.max(soundVal / (FOUR / 10), soundVal / 100)
   p.translate(p.width / 2, p.height / 2);
   p.background(bgColor);
   p.angleMode(p.DEGREES);
