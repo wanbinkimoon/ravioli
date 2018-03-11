@@ -1,19 +1,16 @@
 const path = require('path')
 const webpack = require('webpack')
-const DashboardPlugin = require('webpack-dashboard/plugin');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const paths = {
   src: path.join(__dirname, 'src'),
   dist: path.join(__dirname, 'dist'),
-  // data: path.join(__dirname, 'data')
 }
 
 module.exports = {
   context: paths.src,
-  entry: ['./app.js', './main.scss'],
+  entry: ['./app.js'],
   output: {
     filename: 'app.bundle.js',
     path: paths.dist,
@@ -28,12 +25,6 @@ module.exports = {
           loader: 'babel-loader',
           options: { presets: ['es2015', 'stage-0'] },
         }],
-      },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract([
-          'css-loader', 'sass-loader'
-        ]),
       }
     ],
   },
@@ -45,17 +36,17 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin({
-      filename: 'main.bundle.css',
-      allChunks: true,
-    }),
+    // new ExtractTextPlugin({
+    //   filename: 'main.bundle.css',
+    //   allChunks: true,
+    // }),
     // new CopyWebpackPlugin([
     //   {
     //     from: paths.data,
     //     to: paths.dist + '/data'
     //   }
     // ]), 
-    new DashboardPlugin(), 
+    // new DashboardPlugin(),  
   ],
 
 }
