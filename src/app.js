@@ -11,6 +11,7 @@ import triangle from './sets/triangle';
 import crown from './sets/crown/index';
 import crownDance from './sets/crownDance/index';
 import circles from './sets/circles/index';
+import pinkLemonade from './sets/pinkLemonade/index';
 
 const store = {...initialState};
 
@@ -39,6 +40,8 @@ const sketch = p => {
           return crownDance(p, store.vals, micVol);
         case 5:
           return circles(p, store.vals, micVol, micAmp);
+        case 6:
+          return pinkLemonade(p, store.vals, micVol, micAmp);
 
         default:
           return console.log('default');
