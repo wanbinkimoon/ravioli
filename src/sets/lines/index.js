@@ -27,8 +27,6 @@ export default function(p, vals, micVol, micAmp) {
   const strokeEase = EIGHT / 100;
   const computedAcc = acc(accVal)
 
-  console.log(arc)
-  
   p.background(200, 100, 100);
   
   if (bounce < -arc) {
