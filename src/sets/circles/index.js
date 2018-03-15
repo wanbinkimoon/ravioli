@@ -1,50 +1,53 @@
 import Composition from './composition';
 
-let orbit = 0;
+let ease = 0.05;
 
 export default function(p, vals, micVol, micAmp) {
   const {ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT} = vals;
   p.translate(p.width / 2, p.height / 2);
-  p.colorMode(p.HSB)
-  p.background(0,0,FIVE);
+  p.colorMode(p.HSB);
   p.noFill();
   p.angleMode(p.DEGREES);
 
-  p.rotate(orbit);
-  orbit += EIGHT / 100;
-  
-  const micVolNormalizer = micVol.getLevel() * 10000
-  
-  const distance = THREE;
-  const els = micVolNormalizer;
-  const radiusDefault = (ONE * 10) + micVolNormalizer;
-  let radius = radiusDefault;
-  
-  console.log(micVolNormalizer, els)
+  p.background(0, 0, 0);
 
+  const micVolNormalizer = micVol.getLevel() * 100;
+  const easedSound = micVolNormalizer * ease;
+
+  const radiusDefault = ONE;
+  const distance = TWO + easedSound;
+  const els = THREE;
+  const width = FOUR / 10;
+  const colorHue = easedSound * FIVE;
+  const spaceX = SIX
+  const spaceY = SEVEN
+  
   const position = {
-    x: 0,
-    y: 0,
+    x: 0 - spaceX,
+    y: 0 - spaceY,
   };
-
-  p.rotate(orbit);
   
-  p.strokeWeight(4);
+  const positionTwo = {
+    x: 0 + spaceX,
+    y: 0 + spaceY,
+  };
+  
+  p.strokeWeight(width);
   p.noFill();
-
-  const colorHue = p.random(360)
   
+  let radius = radiusDefault;
 
-  let i = 1
+  let i = 1;
   do {
+    p.stroke(colorHue, 70, 100);
+
     const item = new Composition(p, position, radius);
-    p.stroke(micVolNormalizer, 70, 100)
-
     item.draw;
-    radius = radius - radiusDefault / els;
-
+    
+    const itemTwo = new Composition(p, positionTwo, radius);
+    itemTwo.draw;
+    
+    radius = radius + distance;
     i += 1;
-  }
-  while (i <= TWO);
-  // debugger;
+  } while (i <= els);
 }
