@@ -19,8 +19,8 @@ export default function(p, vals, micVol, micAmp) {
   const els = THREE;
   const width = FOUR / 10;
   const colorHue = easedSound * FIVE;
-  const spaceX = SIX
-  const spaceY = SEVEN
+  const spaceX = SIX * 2
+  const spaceY = SEVEN * 2
   
   const position = {
     x: 0 - spaceX,
@@ -32,7 +32,7 @@ export default function(p, vals, micVol, micAmp) {
     y: 0 + spaceY,
   };
   
-  p.strokeWeight(width);
+  p.strokeWeight(width * easedSound);
   p.noFill();
   
   let radius = radiusDefault;
