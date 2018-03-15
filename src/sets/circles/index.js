@@ -1,6 +1,7 @@
 import Composition from './composition';
 
 let ease = 0.05;
+let orbit = 0 
 
 export default function(p, vals, micVol, micAmp) {
   const {ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT} = vals;
@@ -21,15 +22,29 @@ export default function(p, vals, micVol, micAmp) {
   const colorHue = easedSound * FIVE;
   const spaceX = SIX * 2
   const spaceY = SEVEN * 2
-  
+  const acc = EIGHT / 10
+
+  orbit += acc
+  p.rotate(orbit)
+
   const position = {
-    x: 0 - spaceX,
+    x: 0,
     y: 0 - spaceY,
   };
   
   const positionTwo = {
-    x: 0 + spaceX,
+    x: 0,
     y: 0 + spaceY,
+  };
+  
+  const positionThree = {
+    x: 0 - spaceX,
+    y: 0,
+  };
+  
+  const positionFour = {
+    x: 0 + spaceX,
+    y: 0,
   };
   
   p.strokeWeight(width * easedSound);
@@ -46,6 +61,12 @@ export default function(p, vals, micVol, micAmp) {
     
     const itemTwo = new Composition(p, positionTwo, radius);
     itemTwo.draw;
+    
+    const itemThree = new Composition(p, positionThree, radius);
+    itemThree.draw;
+    
+    const itemFour = new Composition(p, positionFour, radius);
+    itemFour.draw;
     
     radius = radius + distance;
     i += 1;
