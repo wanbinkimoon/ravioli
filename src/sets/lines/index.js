@@ -21,13 +21,13 @@ export default function(p, vals, micVol, micAmp) {
   const distance = TWO;
   const els = THREE;
   const width = FOUR / 10;
-  const circleHue = easedSound * FIVE;
+  const circleHue = 94;
   const arc = SIX / 10;
   const accVal = SEVEN / 100
   const strokeEase = EIGHT / 100;
   const computedAcc = acc(accVal)
 
-  p.background(200, 100, 100);
+  p.background(105, 73, 35);
   
   if (bounce < -arc) {
     speed = speed + (computedAcc * easedSound);
@@ -48,7 +48,7 @@ export default function(p, vals, micVol, micAmp) {
 
   let i = 1;
   do {
-    p.stroke(circleHue, 70, 100);
+    p.stroke(circleHue, 46, 100);
     p.strokeWeight(width - i * strokeEase);
 
     const item = new Composition(p, position, radius);

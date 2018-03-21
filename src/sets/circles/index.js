@@ -10,7 +10,7 @@ export default function(p, vals, micVol, micAmp) {
   p.noFill();
   p.angleMode(p.DEGREES);
 
-  p.background(0, 0, 0);
+  p.background(27, 67, 87);
 
   const micVolNormalizer = micVol.getLevel() * 100;
   const easedSound = micVolNormalizer * ease;
@@ -19,7 +19,7 @@ export default function(p, vals, micVol, micAmp) {
   const distance = TWO + easedSound;
   const els = THREE;
   const width = FOUR / 10;
-  const colorHue = easedSound * FIVE;
+  const colorHue = 342 - FIVE;
   const spaceX = SIX * 2
   const spaceY = SEVEN * 2
   const acc = EIGHT / 10
@@ -54,7 +54,7 @@ export default function(p, vals, micVol, micAmp) {
 
   let i = 1;
   do {
-    p.stroke(colorHue, 70, 100);
+    p.stroke(colorHue, 30, 100);
 
     const item = new Composition(p, position, radius);
     item.draw;
