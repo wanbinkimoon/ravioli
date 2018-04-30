@@ -8,6 +8,7 @@ export default class Composition {
         y: position.y,
       },
     };
+    
   }
 
   get draw() {
